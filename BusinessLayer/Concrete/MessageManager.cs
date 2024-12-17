@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
+        public List<Message> OutboxMessages(int id)
+        {
+            return _messageDal.OutboxMessages(id);
+        }
+
         public void TDelete(int id)
         {
            _messageDal.Delete(id);

@@ -28,5 +28,17 @@ namespace DataAccessLayer.EntityFramework
                             .ToList();
             }
         }
+
+        public List<Message> OutboxMessages(int id)
+        {
+            using (var messageContext = new MessageContext())
+            {
+                return messageContext.Messages
+                            .Include(m => m.Receiver)
+                            .Where(m => m.SenderId == id)
+                            .OrderByDescending(m => m.CreatedDate)
+                            .ToList();
+            }
+        }
     }
 }

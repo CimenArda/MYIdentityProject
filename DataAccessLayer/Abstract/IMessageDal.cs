@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
     public interface IMessageDal :IGenericDal<Message>
     {
         List<Message> InboxMessages(int id);
+        List<Message> OutboxMessages(int id);
     }
 }

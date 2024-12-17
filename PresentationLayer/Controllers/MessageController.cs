@@ -59,5 +59,17 @@ namespace PresentationLayer.Controllers
             var messages = _messageService.TInboxMessages(currentUser.Id);
             return View(messages);
         }
+
+        public async Task<IActionResult> Outbox()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return RedirectToAction("Index", "Login");
+
+            var messages = _messageService.OutboxMessages(currentUser.Id);
+            return View(messages);
+        }
+
+
+
     }
 }
