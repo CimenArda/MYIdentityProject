@@ -22,8 +22,28 @@
             @await Component.InvokeAsync("_LayoutNavbarComponentPartial")
 
 
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
 
-            @await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+                    
+                    @await Component.InvokeAsync("_LayoutSidebarComponentPartial")
+
+                    <div class="pcoded-content">
+
+                        <div class="page-header card">
+                            <div class="row align-items-end">
+                                @RenderBody()
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div id="styleSelector">
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 

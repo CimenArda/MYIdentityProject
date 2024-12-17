@@ -1,76 +1,56 @@
-﻿<div class="pcoded-main-container">
-    <div class="pcoded-wrapper">
-
-        <nav class="pcoded-navbar">
-            <div class="nav-list">
-                <div class="pcoded-inner-navbar main-menu">
-                    <div class="pcoded-navigation-label">Navigation</div>
-                    <ul class="pcoded-item pcoded-left-item">
+﻿<nav class="pcoded-navbar">
+    <div class="nav-list">
+        <div class="pcoded-inner-navbar main-menu">
+            <div class="pcoded-navigation-label">Navigation</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="navbar-light.html" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-menu"></i>
+                        </span>
+                        <span class="pcoded-mtext">Dashboard</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="navbar-light.html" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-menu"></i>
+                        </span>
+                        <span class="pcoded-mtext">Profilim</span>
+                    </a>
+                </li>
+                <li class="pcoded-hasmenu">
+                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                        <span class="pcoded-mtext">Mesaj İşlemleri</span>
+                    </a>
+                    <ul class="pcoded-submenu">
                         <li class="">
-                            <a href="navbar-light.html" class="waves-effect waves-dark">
-                                <span class="pcoded-micon">
-                                    <i class="feather icon-menu"></i>
-                                </span>
-                                <span class="pcoded-mtext">Dashboard</span>
+                            <a href="index.html" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Gelen Kutusu</span>
                             </a>
                         </li>
                         <li class="">
-                            <a href="navbar-light.html" class="waves-effect waves-dark">
-                                <span class="pcoded-micon">
-                                    <i class="feather icon-menu"></i>
-                                </span>
-                                <span class="pcoded-mtext">Profilim</span>
+                            <a href="dashboard-crm.html" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Giden Kutusu</span>
                             </a>
                         </li>
-                        <li class="pcoded-hasmenu">
-                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                <span class="pcoded-mtext">Mesaj İşlemleri</span>
+                        <li class="">
+                            <a href="dashboard-analytics.html" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Yeni Mesaj</span>
                             </a>
-                            <ul class="pcoded-submenu">
-                                <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Gelen Kutusu</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="dashboard-crm.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Giden Kutusu</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Yeni Mesaj</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Çöp Kutusu</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-
+                        <li class="">
+                            <a href="dashboard-analytics.html" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Çöp Kutusu</span>
+                            </a>
+                        </li>
                     </ul>
+                </li>
 
-
-                </div>
-            </div>
-        </nav>
-
-        <div class="pcoded-content">
-
-            <div class="page-header card">
-                <div class="row align-items-end">
-                    @RenderBody()
-                </div>
-            </div>
+            </ul>
 
 
         </div>
-
-        <div id="styleSelector">
-        </div>
-
     </div>
-</div>
+</nav>
