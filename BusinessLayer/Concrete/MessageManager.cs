@@ -33,6 +33,11 @@ namespace BusinessLayer.Concrete
            return _messageDal.GetById(id);
         }
 
+        public List<Message> TInboxMessages(int id)
+        {
+           return _messageDal.InboxMessages(id);
+        }
+
         public void TInsert(Message entity)
         {
            _messageDal.Insert(entity);

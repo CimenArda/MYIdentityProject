@@ -49,5 +49,15 @@ namespace PresentationLayer.Controllers
             ModelState.AddModelError("", "Mesaj gönderilemedi.");
             return View(message);
         }
+
+
+        public async Task<IActionResult> Inbox()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return RedirectToAction("Index", "Login");
+
+            var messages = _messageService.TInboxMessages(currentUser.Id);
+            return View(messages);
+        }
     }
 }
