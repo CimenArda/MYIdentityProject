@@ -14,6 +14,7 @@ namespace EntityLayer.Concrete
         public DateTime CreatedDate { get; set; }
         public bool IsRead { get; set; }
         public bool IsOnline { get; set; }
+        public bool IsDeleted { get; set; }
 
         // Gönderen Kullanıcı
         public int SenderId { get; set; } // Gönderen AppUser'ın ID'si

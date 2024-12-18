@@ -12,6 +12,11 @@ namespace BusinessLayer.Abstract
         List<Message> TInboxMessages(int id);
         List<Message> OutboxMessages(int id);
 
+        void TMoveToTrash(int id);
+
+        List<Message> TGetTrashMessages(int id);//receiver
+
+        void TDeleteMessagePermanently(int id); //message
 
     }
 }

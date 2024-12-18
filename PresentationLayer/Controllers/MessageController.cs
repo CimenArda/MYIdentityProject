@@ -71,5 +71,42 @@ namespace PresentationLayer.Controllers
 
 
 
+        [HttpPost]
+        public async Task<IActionResult> MoveToTrash(int[] selectedMessages)
+        {
+            if (selectedMessages != null && selectedMessages.Length > 0)
+            {
+                foreach (var id in selectedMessages)
+                {
+                    _messageService.TMoveToTrash(id);
+                }
+            }
+            return RedirectToAction("Inbox");
+        }
+
+
+        public async Task<IActionResult> Trash()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null) return RedirectToAction("Index", "Login");
+
+            // Çöp kutusundaki mesajları getir
+            var messages = _messageService.TGetTrashMessages(currentUser.Id);
+            return View(messages);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePermanently(int[] selectedMessages)
+        {
+            if (selectedMessages != null && selectedMessages.Length > 0)
+            {
+                foreach (var id in selectedMessages)
+                {
+                    _messageService.TDeleteMessagePermanently(id);
+                }
+            }
+            return RedirectToAction("Trash");
+        }
     }
 }

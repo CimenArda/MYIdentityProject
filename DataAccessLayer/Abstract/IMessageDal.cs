@@ -11,5 +11,12 @@ namespace DataAccessLayer.Abstract
     {
         List<Message> InboxMessages(int id);
         List<Message> OutboxMessages(int id);
+
+        void MoveToTrash(int id);
+
+        List<Message> GetTrashMessages(int id);//receiver
+
+        void DeleteMessagePermanently(int id); //message
+
     }
 }

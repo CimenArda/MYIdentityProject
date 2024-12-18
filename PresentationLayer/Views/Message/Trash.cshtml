@@ -1,7 +1,7 @@
-﻿@using EntityLayer.Concrete
-@model List<Message>
+﻿@model List<EntityLayer.Concrete.Message>
+
 @{
-    ViewData["Title"] = "Inbox";
+    ViewData["Title"] = "Trash";
     Layout = "~/Views/MessageLayout/Index.cshtml";
 }
 
@@ -11,12 +11,13 @@
     }
 </style>
 
+
 <div class="col-lg-8">
     <div class="page-header-title">
         <i class="feather icon-mail bg-c-blue"></i>
         <div class="d-inline">
-            <h5>Gelen Mesajlar</h5>
-            <span>Size Gönderilmiş Olan Mesajları Görüntüleyebilirsiniz.</span>
+            <h5>Gelen Mesajlar Çöp Kutusu</h5>
+            <span>Size Gelmiş Ve Çöp Kutusuna Taşıdığınız Mesajlar(Dilerseniz Kalıcı Olarak Silebilirsiniz).</span>
         </div>
     </div>
 </div>
@@ -71,42 +72,14 @@
                                     <div class="tab-pane fade show active" id="e-inbox" role="tabpanel">
                                         <div class="mail-body">
                                             <div class="mail-body-header">
-                                                <button type="button" class="btn btn-primary btn-xs waves-effect waves-light">
-                                                    <i class="icofont icofont-exclamation-circle"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-success btn-xs waves-effect waves-light">
-                                                    <i class="icofont icofont-inbox"></i>
-                                                </button>
+                                          
                                                 <button type="button" class="btn btn-danger btn-xs waves-effect waves-light">
                                                     <i class="icofont icofont-ui-delete"></i>
                                                 </button>
-                                                <div class="btn-group dropdown-split-primary">
-                                                    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="icofont icofont-ui-folder"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Something else</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Separated link</a>
-                                                    </div>
-                                                </div>
-                                                <div class="btn-group dropdown-split-primary">
-                                                    <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        More
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Something else</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item waves-effect waves-light" href="#">Separated link</a>
-                                                    </div>
-                                                </div>
+                                       
                                             </div>
                                             <div class="mail-body-content">
-                                                <form asp-action="MoveToTrash" method="post">
+                                                <form asp-action="DeletePermanently" method="post">
                                                     <div class="table-responsive">
                                                         <table class="table">
                                                             @foreach (var item in Model)
@@ -117,9 +90,7 @@
                                                                             <div class="checkbox-fade fade-in-primary checkbox">
                                                                                 <label>
                                                                                     <input type="checkbox" name="selectedMessages" value="@item.MessageId">
-                                                                                    <span class="cr">
-                                                                                        <i class="cr-icon icofont icofont-verification-check txt-primary"></i>
-                                                                                    </span>
+                                                                                    <span class="cr"><i class="cr-icon icofont icofont-verification-check txt-primary"></i></span>
                                                                                 </label>
                                                                             </div>
                                                                         </div>
@@ -129,17 +100,9 @@
                                                                             Kimden: <span class="bold-text">@item.Sender.NameSurname</span>
                                                                         </a>
                                                                     </td>
-                                                                    <td>
-                                                                        <a href="email-read.html" class="email-name waves-effect">@item.Title</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <a href="email-read.html" class="email-name waves-effect">
-                                                                            @item.Content.Substring(0, 50)...
-                                                                        </a>
-                                                                    </td>
-                                                                    <td class="email-attch">
-                                                                        <a href="#"><i class="icofont icofont-clip"></i></a>
-                                                                    </td>
+                                                                    <td><a href="email-read.html" class="email-name waves-effect">@item.Title</a></td>
+                                                                    <td><a href="email-read.html" class="email-name waves-effect">@item.Content.Substring(0, 50)...</a></td>
+                                                                    <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
                                                                     <td class="email-time">@item.CreatedDate</td>
                                                                 </tr>
                                                             }
@@ -147,34 +110,31 @@
                                                     </div>
 
                                                     <button type="submit" class="btn btn-danger btn-xs waves-effect waves-light">
-                                                        <i class="icofont icofont-ui-delete"></i> Çöp Kutusuna Taşı
+                                                        <i class="icofont icofont-ui-delete"></i> Kalıcı Olarak Sil
                                                     </button>
                                                 </form>
-                                                           
-                                                </div>
+                                                 
+                                                
                                             </div>
                                         </div>
                                     </div>
-                               
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <div id="styleSelector">
-        </div>
+    </div>
+
+    <div id="styleSelector">
+    </div>
     <script>
-        document.getElementById('select-all').addEventListener('click', function() {
+        document.getElementById('select-all').addEventListener('click', function () {
             const checkboxes = document.querySelectorAll('input[name="selectedMessages"]');
             checkboxes.forEach(cb => cb.checked = this.checked);
         });
     </script>
-
-
-
-

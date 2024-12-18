@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
            _messageDal.Delete(id);
         }
 
+        public void TDeleteMessagePermanently(int id)
+        {
+            _messageDal.DeleteMessagePermanently(id);
+        }
+
         public List<Message> TGetAllList()
         {
            return _messageDal.GetAllList();
@@ -38,6 +43,11 @@ namespace BusinessLayer.Concrete
            return _messageDal.GetById(id);
         }
 
+        public List<Message> TGetTrashMessages(int id)
+        {
+            return _messageDal.GetTrashMessages(id);
+        }
+
         public List<Message> TInboxMessages(int id)
         {
            return _messageDal.InboxMessages(id);
@@ -46,6 +56,11 @@ namespace BusinessLayer.Concrete
         public void TInsert(Message entity)
         {
            _messageDal.Insert(entity);
+        }
+
+        public void TMoveToTrash(int id)
+        {
+           _messageDal.MoveToTrash(id); 
         }
 
         public void TUpdate(Message entity)
