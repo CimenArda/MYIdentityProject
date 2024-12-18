@@ -108,5 +108,12 @@ namespace PresentationLayer.Controllers
             }
             return RedirectToAction("Trash");
         }
+
+
+        public IActionResult MessageDetail(int id)
+        {
+         var value = _messageService.GetByIdWithSender(id);
+            return View(value);
+        }
     }
 }

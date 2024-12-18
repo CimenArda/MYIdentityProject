@@ -18,5 +18,8 @@ namespace BusinessLayer.Abstract
 
         void TDeleteMessagePermanently(int id); //message
 
+        Message GetByIdWithSender(int id);
+
+
     }
 }

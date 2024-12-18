@@ -18,5 +18,8 @@ namespace DataAccessLayer.Abstract
 
         void DeleteMessagePermanently(int id); //message
 
+        Message GetByIdWithSender(int id);
+
+
     }
 }

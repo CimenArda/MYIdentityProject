@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
+        public Message GetByIdWithSender(int id)
+        {
+            return _messageDal.GetByIdWithSender(id);
+        }
+
         public List<Message> OutboxMessages(int id)
         {
             return _messageDal.OutboxMessages(id);

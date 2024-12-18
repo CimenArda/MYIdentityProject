@@ -30,6 +30,16 @@ namespace DataAccessLayer.EntityFramework
             }
         }
 
+        public Message GetByIdWithSender(int id)
+        {
+            using (var messageContext = new MessageContext())
+            {
+                return messageContext.Messages
+                  .Include(m => m.Sender) 
+                  .FirstOrDefault(m => m.MessageId == id);
+            }
+        }
+
         public List<Message> GetTrashMessages(int id)
         {
             using (var messageContext = new MessageContext())
