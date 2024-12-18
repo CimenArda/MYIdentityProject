@@ -113,6 +113,12 @@ namespace PresentationLayer.Controllers
         public IActionResult MessageDetail(int id)
         {
          var value = _messageService.GetByIdWithSender(id);
+            if (value != null && !value.IsRead)
+            {
+                // Mesaj okundu olarak işaretledim.
+                value.IsRead = true;
+                _messageService.TUpdate(value);
+            }
             return View(value);
         }
     }

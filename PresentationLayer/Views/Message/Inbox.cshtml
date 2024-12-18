@@ -103,9 +103,19 @@
                                                                             @item.Content.Substring(0, 50)...
                                                                         </a>
                                                                     </td>
-                                                                    <td class="email-attch">
-                                                                        <a href="#"><i class="icofont icofont-clip"></i></a>
-                                                                    </td>
+                                                                    @if (item.IsRead == true)
+                                                                    {
+                                                                        <td class="email-attch">
+                                                                            <a href="#"><i class="icofont icofont-tick-boxed"></i></a>
+                                                                        </td>
+                                                                        
+                                                                    }else
+                                                                    {
+                                                                        <td class="email-attch">
+                                                                            <a href="#"><i class="icofont icofont-close-circled"></i></a>
+                                                                        </td>
+                                                                    }
+                                                                    
                                                                     <td class="email-time">@item.CreatedDate</td>
                                                                 </tr>
                                                             }
